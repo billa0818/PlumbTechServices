@@ -1,213 +1,191 @@
-/* PlumbTech Services - Main Stylesheet */
-/* Created by a student for PlumbTech Services */
+/* Additional Styles for PlumbTech Services */
 
-/* Global Styles */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+/* Add smooth scrolling to the entire page */
+html {
+    scroll-behavior: smooth;
 }
 
-body {
-    background-color: #f4f4f9;
-    font-family: Arial, sans-serif;
-    color: #333;
-    line-height: 1.6;
+/* Enhance the hero section */
+.hero-section {
+    position: relative;
+    overflow: hidden;
 }
 
-/* Header Styles */
-header {
-    background-color: #003366;
-    color: white;
-    padding: 15px 0;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+.hero-section h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
-.logo-container {
-    text-align: center;
-    margin-bottom: 10px;
+.hero-section p {
+    font-size: 1.2em;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Add animation to hero images */
+.hero-section img {
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+
+.hero-section img:hover {
+    transform: scale(1.02);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+/* Improve content section styling */
+.content-section {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.content-section:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Add gradient background to buttons */
+input[type="submit"], 
+.button {
+    background: linear-gradient(to right, #007acc, #0056b3);
+    background-size: 200% auto;
+    transition: background-position 0.5s ease;
+}
+
+input[type="submit"]:hover, 
+.button:hover {
+    background-position: right center;
+}
+
+/* Add animation to service list items */
+.services-list li {
+    position: relative;
+    overflow: hidden;
+}
+
+.services-list li::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+.services-list li:hover::before {
+    left: 100%;
+}
+
+/* Add styling for form validation */
+input:invalid, textarea:invalid {
+    border-color: #ff6b6b;
+}
+
+input:valid, textarea:valid {
+    border-color: #51cf66;
+}
+
+/* Add loading animation for form submission */
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.loading {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    border-top-color: white;
+    animation: spin 1s ease-in-out infinite;
+    margin-left: 10px;
+    vertical-align: middle;
+}
+
+/* Add floating animation to logo */
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
 }
 
 .logo {
-    width: 150px;
-    height: auto;
-    transition: transform 0.3s ease;
+    animation: float 3s ease-in-out infinite;
 }
 
-.logo:hover {
-    transform: scale(1.05);
+/* Add transition to all hover effects */
+a, button, input, li {
+    transition: all 0.3s ease;
 }
 
-h1 {
-    font-size: 2.2em;
-    margin: 10px 0;
+/* Add parallax effect for future use */
+.parallax {
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
-/* Navigation Styles */
-nav {
-    margin: 15px 0;
+/* Add tooltip styling */
+.tooltip {
+    position: relative;
+    display: inline-block;
 }
 
-nav ul {
-    list-style-type: none;
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: #333;
+    color: #fff;
     text-align: center;
+    border-radius: 6px;
+    padding: 5px;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -60px;
+    opacity: 0;
+    transition: opacity 0.3s;
 }
 
-nav li {
-    display: inline;
-    margin: 0 15px;
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
 }
 
-nav a {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-    padding: 5px 10px;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
-}
-
-nav a:hover {
-    background-color: #007acc;
-}
-
-/* Main Content Styles */
-main {
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.hero-section {
-    background-color: #007acc;
-    color: white;
-    text-align: center;
-    padding: 50px 0;
-    margin-bottom: 20px;
-}
-
-.hero-section img {
-    width: 100%;
-    max-width: 800px;
-    height: auto;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    margin-bottom: 20px;
-}
-
-.content-section {
-    padding: 40px;
-    background-color: #ffffff;
-    text-align: center;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    margin-bottom: 20px;
-}
-
-h2 {
-    color: #ffffff;
-    margin-bottom: 15px;
-}
-
-h3 {
-    color: #003366;
-    margin-bottom: 15px;
-}
-
-p {
-    margin-bottom: 15px;
-}
-
-/* Services List */
-.services-list {
-    list-style-type: none;
-    padding: 0;
-    margin: 20px 0;
-}
-
-.services-list li {
-    padding: 10px;
-    margin: 5px 0;
-    background-color: #f0f8ff;
-    border-radius: 5px;
-    transition: transform 0.2s ease, background-color 0.2s ease;
-}
-
-.services-list li:hover {
-    transform: translateY(-3px);
-    background-color: #e6f2ff;
-}
-
-/* Form Styles */
-form {
-    max-width: 500px;
-    margin: 0 auto;
-    text-align: left;
-}
-
-label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
-    color: #003366;
-}
-
-input[type="text"],
-input[type="email"],
-textarea {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-}
-
-textarea {
-    height: 150px;
-    resize: vertical;
-}
-
-input[type="submit"] {
-    background-color: #007acc;
-    color: white;
-    border: none;
-    padding: 12px 20px;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 16px;
-    transition: background-color 0.3s ease;
-}
-
-input[type="submit"]:hover {
-    background-color: #0056b3;
-}
-
-/* Contact Info */
-.contact-info {
-    font-size: 1.1em;
-    line-height: 2;
-}
-
-.contact-info p {
-    margin: 10px 0;
-}
-
-/* Footer Styles */
-footer {
-    background-color: #003366;
-    color: white;
-    text-align: center;
-    padding: 15px;
-    margin-top: 20px;
-}
-
-/* Responsive Design */
+/* Add responsive font sizes */
 @media (max-width: 768px) {
-    nav li {
-        display: block;
-        margin: 10px 0;
+    h1 {
+        font-size: 1.8em;
+    }
+    
+    h2 {
+        font-size: 1.5em;
+    }
+    
+    .hero-section p {
+        font-size: 1em;
+    }
+}
+
+/* Add print styles */
+@media print {
+    nav, footer {
+        display: none;
+    }
+    
+    body {
+        background-color: white;
+        color: black;
+        font-size: 12pt;
     }
     
     .content-section {
-        padding: 20px;
+        box-shadow: none;
+        padding: 0;
     }
 }
